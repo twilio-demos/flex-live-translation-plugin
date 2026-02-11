@@ -1,17 +1,18 @@
 {
   "name": "plugin-sample",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "postinstall": "flex-plugin pre-script-check"
   },
   "dependencies": {
-    "@twilio/flex-plugin": "7.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "prop-types": "^15.7.2",
+    "@chatscope/chat-ui-kit-react": "^2.1.1",
     "@twilio-paste/core": "^15.3.1",
-    "@twilio-paste/icons": "^9.2.0"
+    "@twilio-paste/icons": "^9.2.0",
+    "@twilio/flex-plugin": "7.1.2",
+    "prop-types": "^15.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@twilio/flex-plugin-scripts": "7.1.2",

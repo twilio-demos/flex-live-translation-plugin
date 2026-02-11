@@ -1,3 +1,9 @@
+import {
+  ChatContainer,
+  ConversationHeader,
+  MessageList,
+} from "@chatscope/chat-ui-kit-react";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import * as Flex from "@twilio/flex-ui";
 import { useEffect, useRef } from "react";
 import { useConversation } from "../../hooks/use-conversation";
@@ -20,27 +26,20 @@ export const Conversation = () => {
   }, [conversation]);
 
   return (
-    <div className="conversation-container">
-      {/* Messages */}
-      {conversation.length === 0 ? (
-        <div className="empty-state">
-          <p className="empty-state-text">No messages in this conversation</p>
-        </div>
-      ) : (
-        <div className="messages-container">
-          <h2 className="messages-title">Messages</h2>
-          <div className="messages-list">
-            {conversation.map((message, index) => (
-              <ConversationMessageComponent
-                key={`${message.timestamp}-${index}`}
-                message={message}
-                showTranslation={showTranslations}
-              />
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
-        </div>
-      )}
-    </div>
+    <ChatContainer style={{ height: "100%", width: "100%" }}>
+      <ConversationHeader>
+        <ConversationHeader.Content userName="Live Translation"></ConversationHeader.Content>
+      </ConversationHeader>
+      <MessageList style={{ height: "100%" }}>
+        {conversation.map((m, idx) => (
+          <ConversationMessageComponent
+            key={`${m.timestamp}-${idx}`}
+            message={m}
+            showTranslation={showTranslations}
+          />
+        ))}
+        <div ref={messagesEndRef} />
+      </MessageList>
+    </ChatContainer>
   );
 };

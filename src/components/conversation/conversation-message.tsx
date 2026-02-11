@@ -1,3 +1,4 @@
+import { Message } from "@chatscope/chat-ui-kit-react";
 import { ConversationMessage } from "types/profiles";
 import "./conversation-message.css";
 
@@ -13,31 +14,45 @@ export default function ConversationMessageComponent({
   const isCaller = message.whichParty === "caller";
 
   return (
-    <div className={`message-wrapper ${isCaller ? "caller" : "agent"}`}>
-      <div className={`message-content ${isCaller ? "caller" : "agent"}`}>
-        <div className="message-header">
-          <span className="message-party">{message.whichParty}</span>
-          <span className="message-time">
-            {new Date(message.timestamp).toLocaleTimeString()}
-          </span>
+    <Message
+      model={{
+        direction: isCaller ? "incoming" : "outgoing",
+        position: "single",
+      }}>
+      <Message.CustomContent>
+        <div style={{ marginBottom: "0.5rem" }}>
+          <div
+            style={{
+              fontSize: "0.75rem",
+              opacity: 0.7,
+              marginBottom: "0.25rem",
+            }}>
+            Original ({message.originalLanguageCode})
+          </div>
+          <div style={{ fontSize: "1rem" }}>{message.original}</div>
         </div>
-
-        <div className="message-section">
-          <p className="message-label">
-            Original ({message.originalLanguageCode}):
-          </p>
-          <p className="message-text">{message.original}</p>
-        </div>
-
-        {showTranslation && (
-          <div className="message-translation">
-            <p className="message-label">
-              Translated ({message.translatedLanguageCode}):
-            </p>
-            <p className="message-text italic">{message.translated}</p>
+        {showTranslation && message.translated && (
+          <div
+            style={{
+              paddingTop: "0.5rem",
+              borderTop: "1px solid currentColor",
+              opacity: 0.85,
+            }}>
+            <div
+              style={{
+                fontSize: "0.75rem",
+                opacity: 0.7,
+                marginBottom: "0.25rem",
+              }}>
+              Translated ({message.translatedLanguageCode})
+            </div>
+            <div style={{ fontStyle: "italic" }}>{message.translated}</div>
           </div>
         )}
-      </div>
-    </div>
+      </Message.CustomContent>
+      <Message.Footer>
+        {new Date(message.timestamp).toLocaleTimeString()}
+      </Message.Footer>
+    </Message>
   );
 }

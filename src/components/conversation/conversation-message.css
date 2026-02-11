@@ -13,18 +13,20 @@
 
 .message-content {
   max-width: 70%;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-content.caller {
-  background-color: #dbeafe;
-  color: #1e3a8a;
+  background-color: #e3f2fd;
+  color: #1a1a1a;
 }
 
 .message-content.agent {
-  background-color: #dcfce7;
-  color: #14532d;
+  background-color: #2196f3;
+  color: #ffffff;
 }
 
 .message-header {
@@ -51,34 +53,34 @@
 }
 
 .message-label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   margin-bottom: 0.25rem;
+  opacity: 0.8;
 }
 
 .message-text {
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
 .message-translation {
   padding-top: 0.5rem;
   border-top: 1px solid currentColor;
   opacity: 0.8;
+  margin-top: 0.5rem;
 }
 
 .message-text.italic {
   font-style: italic;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .message-content.caller {
-    background-color: rgba(30, 58, 138, 0.3);
-    color: #dbeafe;
-  }
+/* Chat UI Kit overrides for individual messages */
+.cs-message__content {
+  word-wrap: break-word;
+  line-height: 1.5;
+}
 
-  .message-content.agent {
-    background-color: rgba(20, 83, 45, 0.3);
-    color: #dcfce7;
-  }
+.cs-message__html-content {
+  margin: 0;
 }
