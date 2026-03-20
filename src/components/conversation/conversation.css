@@ -5,9 +5,79 @@
   border: none !important;
 }
 
-.cs-conversation-header {
+/* Theme wrapper */
+.light-theme,
+.dark-theme {
+  height: 100%;
+  width: 100%;
+}
+
+/* Light theme (default) */
+.light-theme .cs-conversation-header {
   background-color: #f8f9fa !important;
   border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.light-theme .cs-conversation-header__user-name {
+  color: #1a1a1a !important;
+}
+
+.light-theme .cs-conversation-header__info {
+  color: #6b7280 !important;
+}
+
+.light-theme .cs-message-list {
+  background-color: #ffffff !important;
+}
+
+.light-theme .cs-message--incoming .cs-message__content {
+  background-color: #e3f2fd !important;
+  color: #1a1a1a !important;
+}
+
+.light-theme .cs-message--outgoing .cs-message__content {
+  background-color: #2196f3 !important;
+  color: #ffffff !important;
+}
+
+.light-theme .cs-message__footer {
+  color: #546e7a !important;
+}
+
+/* Dark theme */
+.dark-theme .cs-conversation-header {
+  background-color: #1e1e2f !important;
+  border-bottom: 1px solid #3a3a4a !important;
+}
+
+.dark-theme .cs-conversation-header__user-name {
+  color: #e0e0e0 !important;
+}
+
+.dark-theme .cs-conversation-header__info {
+  color: #9e9eb3 !important;
+}
+
+.dark-theme .cs-message-list {
+  background-color: #121221 !important;
+}
+
+.dark-theme .cs-message--incoming .cs-message__content {
+  background-color: #2a2a3d !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-theme .cs-message--outgoing .cs-message__content {
+  background-color: #1565c0 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .cs-message__footer {
+  color: #9e9eb3 !important;
+}
+
+/* Shared styles */
+.cs-conversation-header {
   padding: 1rem 1.5rem !important;
 }
 
@@ -19,17 +89,14 @@
 .cs-conversation-header__user-name {
   font-size: 1.125rem !important;
   font-weight: 600 !important;
-  color: #1a1a1a !important;
   margin-bottom: 0.25rem !important;
 }
 
 .cs-conversation-header__info {
   font-size: 0.875rem !important;
-  color: #6b7280 !important;
 }
 
 .cs-message-list {
-  background-color: #ffffff !important;
   padding: 1.5rem !important;
   overflow-y: auto !important;
   scrollbar-width: none !important;
@@ -44,9 +111,8 @@
   margin-bottom: 1rem !important;
 }
 
-.cs-message--incoming .cs-message__content {
-  background-color: #e3f2fd !important;
-  color: #1a1a1a !important;
+.cs-message--incoming .cs-message__content,
+.cs-message--outgoing .cs-message__content {
   border-radius: 1rem !important;
   padding: 0.75rem 1rem !important;
   width: 100%;
@@ -54,14 +120,6 @@
 
 .cs-message--outgoing {
   justify-content: flex-end !important;
-}
-
-.cs-message--outgoing .cs-message__content {
-  background-color: #2196f3 !important;
-  color: #ffffff !important;
-  border-radius: 1rem !important;
-  padding: 0.75rem 1rem !important;
-  width: 100%;
 }
 
 .cs-message__content-wrapper {
@@ -78,7 +136,6 @@
   font-size: 0.75rem !important;
   margin-top: 0.25rem !important;
   opacity: 0.8 !important;
-  color: #546e7a !important;
 }
 
 .cs-message--outgoing .cs-message__footer {
@@ -92,7 +149,6 @@
 }
 
 .cs-message-input {
-  background-color: #f0f8ff !important;
   border: none !important;
   padding: 0.75rem 1rem !important;
   border-radius: 2rem !important;

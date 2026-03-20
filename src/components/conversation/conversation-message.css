@@ -19,13 +19,25 @@
   flex-direction: column;
 }
 
-.message-content.caller {
+/* Light theme message colors */
+.light-theme .message-content.caller {
   background-color: #e3f2fd;
   color: #1a1a1a;
 }
 
-.message-content.agent {
+.light-theme .message-content.agent {
   background-color: #2196f3;
+  color: #ffffff;
+}
+
+/* Dark theme message colors */
+.dark-theme .message-content.caller {
+  background-color: #2a2a3d;
+  color: #e0e0e0;
+}
+
+.dark-theme .message-content.agent {
+  background-color: #1565c0;
   color: #ffffff;
 }
 
